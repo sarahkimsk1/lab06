@@ -127,9 +127,11 @@ def separate_nums(num, char, step):
     """
     # YOUR CODE GOES HERE #
     s = str(num)
-    if len(s) < step:
-        return s
+    if len(s) == 0:
+        return ''
     if num < 0:
         return '-' + separate_nums(abs(num), char, step)
     if num > 0:
+        if len(s) <= step:
+            return s
         return separate_nums(int(s[:-step]), char, step) + char + s[-step:]
